@@ -1,0 +1,79 @@
+plugins {
+  id 'com.android.library'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+}
+
+android {
+  compileSdkVersion 30
+  buildToolsVersion "29.0.3"
+
+  defaultConfig {
+    minSdkVersion 21
+    targetSdkVersion 30
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    consumerProguardFiles "consumer-rules.pro"
+  }
+
+  buildTypes {
+    release {
+      debuggable false
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+      buildConfigField 'String', 'API_BASE_URL', '"https://api.themoviedb.org/"'
+      buildConfigField 'String', 'PICTURE_BASE_URL', '"https://image.tmdb.org/t/p/w500/"'
+    }
+    debug {
+      debuggable true
+      testCoverageEnabled true
+
+      buildConfigField 'String', 'API_BASE_URL', '"https://api.themoviedb.org/"'
+      buildConfigField 'String', 'PICTURE_BASE_URL', '"https://image.tmdb.org/t/p/w500/"'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+dependencies {
+  def dataDependencies = rootProject.ext.dataDependencies
+
+  implementation project(':domain')
+  implementation project(':utility')
+
+  implementation dataDependencies.kotlin
+
+  // Dagger
+  implementation dataDependencies.javaxInject
+  implementation dataDependencies.dagger
+  kapt dataDependencies.daggerCompiler
+
+  // Retrofit
+  api dataDependencies.retrofit
+  api dataDependencies.okHttpProfiler
+  api dataDependencies.retrofitMoshiConverter
+
+  // Moshi
+  implementation dataDependencies.moshi
+  implementation dataDependencies.moshiKotlin
+  kapt dataDependencies.moshiCodegen
+
+  // Room
+  api dataDependencies.room
+  implementation dataDependencies.roomKtx
+  kapt dataDependencies.roomCompiler
+
+  // Coroutines
+  implementation dataDependencies.coroutines
+  implementation dataDependencies.coroutinesAndroid
+
+}

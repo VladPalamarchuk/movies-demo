@@ -1,0 +1,71 @@
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-android-extensions'
+  id 'kotlin-kapt'
+}
+
+android {
+  def globalConfiguration = rootProject.ext
+
+  compileSdkVersion 30
+
+  defaultConfig {
+    applicationId "com.w1tty.movies.demo"
+    minSdkVersion 21
+    targetSdkVersion 30
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+dependencies {
+  def presentationDependencies = rootProject.ext.presentationDependencies
+
+  implementation project(':domain')
+  implementation project(':data')
+  implementation project(':utility')
+
+  implementation presentationDependencies.kotlin
+  implementation presentationDependencies.androidxCore
+  implementation presentationDependencies.androidxCompat
+
+  implementation presentationDependencies.viewModel
+  implementation presentationDependencies.liveData
+  implementation presentationDependencies.lifecycleRuntime
+
+  implementation presentationDependencies.material
+  implementation presentationDependencies.recyclerView
+  implementation presentationDependencies.constrainLayout
+
+  implementation presentationDependencies.dagger
+  implementation presentationDependencies.daggerAndroid
+  implementation presentationDependencies.daggerSupport
+  kapt presentationDependencies.daggerCompiler
+  kapt presentationDependencies.daggerSupportCompiler
+
+  implementation presentationDependencies.navigation
+  implementation presentationDependencies.navigationUI
+
+  implementation presentationDependencies.adapterDelegates
+  implementation presentationDependencies.timber
+
+  implementation presentationDependencies.glide
+  kapt presentationDependencies.glideProcessor
+}

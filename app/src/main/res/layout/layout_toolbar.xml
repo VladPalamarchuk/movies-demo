@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="?android:attr/actionBarSize"
+		tools:parentTag="android.widget.FrameLayout"
+		>
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center_vertical"
+			android:gravity="center_vertical"
+			android:orientation="horizontal"
+			>
+
+		<androidx.appcompat.widget.AppCompatImageButton
+				android:id="@+id/btnNavigation"
+				android:layout_width="@dimen/default_ripple_icon_size"
+				android:layout_height="@dimen/default_ripple_icon_size"
+				android:layout_gravity="start|center_vertical"
+				android:layout_marginStart="@dimen/margin_1x"
+				android:background="@null"
+				android:src="@drawable/ic_back"
+				android:tint="?attr/colorAccent"
+				android:visibility="gone"
+				tools:visibility="visible"
+				/>
+
+		<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/margin_1x"
+				android:layout_marginEnd="@dimen/margin_1x"
+				android:layout_weight="1"
+				android:orientation="vertical"
+				>
+
+			<TextView
+					android:id="@+id/baseDialogTvTitle"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@android:style/TextAppearance.Medium"
+					tools:text="Test"
+					/>
+
+			<TextView
+					android:id="@+id/tvDescription"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textAppearance="@android:style/TextAppearance.Small"
+					android:visibility="gone"
+					tools:text="Test"
+					tools:visibility="visible"
+					/>
+		</LinearLayout>
+
+		<androidx.appcompat.widget.AppCompatImageButton
+				android:id="@+id/btnOptions"
+				android:layout_width="@dimen/default_ripple_icon_size"
+				android:layout_height="@dimen/default_ripple_icon_size"
+				android:layout_marginEnd="@dimen/margin_1x"
+				android:background="@null"
+				android:scaleType="centerInside"
+				android:src="@drawable/ic_search"
+				android:tint="?attr/colorAccent"
+				android:visibility="gone"
+				tools:visibility="visible"
+				/>
+
+	</LinearLayout>
+</merge>

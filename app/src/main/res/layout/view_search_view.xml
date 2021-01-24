@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:parentTag="android.widget.FrameLayout"
+		>
+
+	<androidx.appcompat.widget.AppCompatImageButton
+			android:id="@+id/btnCancelSearch"
+			android:layout_width="@dimen/default_ripple_icon_size"
+			android:layout_height="@dimen/default_ripple_icon_size"
+			android:layout_gravity="start|center_vertical"
+			android:layout_marginStart="@dimen/margin_1x"
+			android:background="@null"
+			android:src="@drawable/ic_back"
+			android:tint="?attr/colorAccent"
+			/>
+
+	<androidx.appcompat.widget.AppCompatEditText
+			android:id="@+id/etSearch"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center|center_vertical"
+			android:layout_marginStart="@dimen/margin_7x"
+			android:layout_marginEnd="@dimen/margin_7x"
+			android:background="@null"
+			android:maxLines="1"
+			android:hint="@string/search"
+			android:imeOptions="actionSearch"
+			/>
+
+	<androidx.appcompat.widget.AppCompatImageButton
+			android:id="@+id/btnClearSearch"
+			android:layout_width="@dimen/default_ripple_icon_size"
+			android:layout_height="@dimen/default_ripple_icon_size"
+			android:layout_gravity="end|center_vertical"
+			android:layout_marginEnd="@dimen/margin_1x2"
+			android:background="@null"
+			android:src="@drawable/ic_close"
+			android:tint="?attr/colorAccent"
+			android:visibility="gone"
+			tools:visibility="visible"
+			/>
+</merge>

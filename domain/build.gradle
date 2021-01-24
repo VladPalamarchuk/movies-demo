@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    def domainDependencies = rootProject.ext.domainDependencies
+    implementation domainDependencies.kotlin
+    implementation domainDependencies.coroutines
+    implementation domainDependencies.javaxInject
+}
